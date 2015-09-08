@@ -4,7 +4,23 @@
 
 <h1 class="text-center">Recent Posts</h1>
 
-<table class="table">
+<ul class="list-group">
+  <% @posts.each do |post| %>
+
+  <h2> <%= post.title %> </h2>
+  <p> <%= post.body %> </p>
+
+  <div class="btn-group">
+     <td><%= link_to 'Show', post, class: "btn btn-primary" %></td>
+     <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-info" %></td>
+     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+  </div>
+  <hr>
+  <br>
+  <% end %>
+</ul>
+
+<!-- <table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -29,7 +45,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
